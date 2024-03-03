@@ -1,9 +1,18 @@
 ---
+import Container from "../components/Container.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Welcome to Astro.">
-  <div>asd</div>
+  <section class="test">
+    <Container>
+      <div>dsa</div>
+    </Container>
+  </section>
 </Layout>
 
-<style></style>
+<style>
+  .test {
+    height: 100%;
+  }
+</style>

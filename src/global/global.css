@@ -4,6 +4,9 @@
 *::after {
   box-sizing: border-box;
 }
+html, body {
+    height: 100%;
+  }
 
 :root {
 	--txt-1: hsl(220 10% 98%);
@@ -13,33 +16,10 @@
 	--pulse: hsl(9 100% 64%);
 }
 
-.text {
-  padding-inline-start: 10px;
-  border-left: 4px solid #ffc300;
-  color: var(--black, #1b1b1b);
-  font-family: Inter;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 30px;
-  letter-spacing: 1.14px;
-  margin-block-end: 20px;
-}
-.svg__box {
-  background-color: #ffffff;
-  opacity: 0.5;
-  background-image: linear-gradient(#000000 1px, transparent 1px),
-    linear-gradient(to right, #000000 1px, #ffffff 1px);
-  background-size: 20px 20px;
-}
+
 main{
   overflow: hidden;
   z-index: 20;
-}
-.container{
-  max-width: 1400px;
-  padding-inline: 20px;
-  margin-inline: auto;
 }
 /* Prevent font size inflation */
 html {
