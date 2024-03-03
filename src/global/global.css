@@ -18,7 +18,6 @@ html, body {
 
 
 main{
-  overflow: hidden;
   z-index: 20;
 }
 /* Prevent font size inflation */
