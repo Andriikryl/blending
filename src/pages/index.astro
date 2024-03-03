@@ -2,6 +2,7 @@
 import Container from "../components/Container.astro";
 import Layout from "../layouts/Layout.astro";
 import BlandingGroup from "../components/BlandingGroup.astro";
+import Darken from "../components/Darken.svelte";
 ---
 
 <Layout title="Welcome to Astro.">
@@ -11,7 +12,9 @@ import BlandingGroup from "../components/BlandingGroup.astro";
         <div class="sidebar">
           <BlandingGroup />
         </div>
-        <div class="main__box">main content</div>
+        <div class="main__box">
+          <Darken client:visible />
+        </div>
       </div>
     </Container>
   </section>
