@@ -18,6 +18,13 @@
   $: minR = Math.max($gui.R, $guiBg.R);
   $: minG = Math.max($gui.G, $guiBg.G);
   $: minB = Math.max($gui.B, $guiBg.B);
+  $: algoritmsData = [
+    "compares each colour",
+    "selects the lightest value",
+    `Blend ---> background-color: rgb(${$gui.R}, ${$gui.G}, ${$gui.B})`,
+    `Background ---> background-color: rgb(${$guiBg.R}, ${$guiBg.G}, ${$guiBg.B})`,
+    `Result ---> background-color: rgb(${minR}, ${minG}, ${minB})`,
+  ];
 </script>
 
 <div class="wrapper">
@@ -48,7 +55,17 @@
     >
   </BoxSeparetor>
   <BlandExemple {gui} {guiBg} blendmode="mix-blend-mode: lighten;" />
-  <FinalBackdrop bkB={minB} bkG={minG} bkR={minR} />
+  <div class="backdrop__wrapper">
+    <FinalBackdrop bkB={minB} bkG={minG} bkR={minR} />
+    <div>
+      <BlandDescription>Algorithm</BlandDescription>
+      <ol class="algoritms__list">
+        {#each algoritmsData as algoritm}
+          <li>{algoritm}</li>
+        {/each}
+      </ol>
+    </div>
+  </div>
 </div>
 
 <style>

@@ -76,28 +76,7 @@
   .wrapper {
     margin-block-end: 50px;
   }
-  .algoritms__list {
-    padding-inline-start: 0px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    & li {
-      padding-block-end: 10px;
-      border-bottom: 1px solid rgb(14, 165, 233);
-      color: var(--black, #1b1b1b);
-      font-family: Patrick Hand;
-      font-size: 17px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 28px;
-      padding-inline-start: 10px;
-    }
-  }
-  .backdrop__wrapper {
-    display: flex;
-    justify-content: space-between;
-    margin-block-start: 40px;
-  }
+
   .flex__group {
     display: flex;
     gap: 10px;
