@@ -1,6 +1,7 @@
 <script lang="ts">
   export let guiBg;
   export let gui;
+  export let blendmode: string;
 </script>
 
 <div class="wrapper">
@@ -10,7 +11,7 @@
   ></div>
   <div
     class="boxBg"
-    style="background-color: rgb({$gui.R}, {$gui.G}, {$gui.B});"
+    style="background-color: rgb({$gui.R}, {$gui.G}, {$gui.B}); {blendmode};"
   ></div>
 </div>
 
@@ -31,6 +32,6 @@
     left: -54px;
     bottom: -40px;
     z-index: 10;
-    mix-blend-mode: darken;
+    /* mix-blend-mode: darken; */
   }
 </style>

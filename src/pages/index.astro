@@ -3,6 +3,7 @@ import Container from "../components/Container.astro";
 import Layout from "../layouts/Layout.astro";
 import BlandingGroup from "../components/BlandingGroup.astro";
 import Darken from "../components/Darken.svelte";
+import Lighten from "../components/Lighten.svelte";
 ---
 
 <Layout title="Welcome to Astro.">
@@ -14,6 +15,7 @@ import Darken from "../components/Darken.svelte";
         </div>
         <div class="main__box">
           <Darken client:visible />
+          <Lighten client:visible />
         </div>
       </div>
     </Container>

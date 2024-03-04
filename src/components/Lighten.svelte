@@ -14,17 +14,14 @@
     G: 165,
     B: 233,
   });
-  $: minR = Math.min($gui.R, $guiBg.R);
-  $: minG = Math.min($gui.G, $guiBg.G);
-  $: minB = Math.min($gui.B, $guiBg.B);
+  $: minR = Math.max($gui.R, $guiBg.R);
+  $: minG = Math.max($gui.G, $guiBg.G);
+  $: minB = Math.max($gui.B, $guiBg.B);
 </script>
 
 <div class="wrapper">
-  <BlandTitle tag="h3">darken</BlandTitle>
-  <BlandDescription>
-    Darken compares each colour's RGB value and selects the darkest value -
-    creating a new colour.
-  </BlandDescription>
+  <BlandTitle tag="h3">LIGHTEN</BlandTitle>
+  <BlandDescription>Selects the lightest value.</BlandDescription>
   <BoxSeparetor>
     <svelte:fragment slot="item-start">
       <div class="control__bg">
@@ -49,12 +46,12 @@
       </div></svelte:fragment
     >
   </BoxSeparetor>
-  <BlandExemple {gui} {guiBg} blendmode=" mix-blend-mode: darken" />
+  <BlandExemple {gui} {guiBg} blendmode="mix-blend-mode: lighten;" />
 </div>
 
 <style>
   .wrapper {
-    margin-block-end: 50px;
+    margin-block-end: 20px;
   }
   .flex__group {
     display: flex;
