@@ -3,6 +3,7 @@
   import BlandExemple from "./BlandExemple.svelte";
   import BlandTitle from "./BlandTitle.svelte";
   import BoxSeparetor from "./BoxSeparetor.svelte";
+  import FinalBackdrop from "./FinalBackdrop.svelte";
   import { GUI, guiControls } from "./index";
   const gui = guiControls({
     R: 244,
@@ -32,7 +33,7 @@
       </div>
     </svelte:fragment>
     <svelte:fragment slot="item-end">
-      <BlandDescription>Backdrop</BlandDescription>
+      <BlandDescription>Backdrop values numbers</BlandDescription>
       <div class="flex__group">
         <div class="iiner__box" style="background-color: rgb({minR}, 0, 0);">
           <p class="inner__title">{minR}</p>
@@ -47,6 +48,7 @@
     >
   </BoxSeparetor>
   <BlandExemple {gui} {guiBg} blendmode="mix-blend-mode: lighten;" />
+  <FinalBackdrop bkB={minB} bkG={minG} bkR={minR} />
 </div>
 
 <style>
