@@ -11,9 +11,6 @@
 </div>
 
 <style>
-  .backdrop__box {
-    margin-block-start: 40px;
-  }
   .box {
     width: 100px;
     height: 100px;
