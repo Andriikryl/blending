@@ -1,0 +1,80 @@
+---
+import BlandDescription from "./BlandDescription.svelte";
+import BlandTitle from "./BlandTitle.svelte";
+---
+
+<div class="hero">
+  <BlandTitle tag="h1">Blending</BlandTitle>
+  <BlandDescription>
+    Mix-blend-mode is a powerful CSS property that controls how an element's
+    content blends with the background of its parent element. It essentially
+    creates a visual effect by combining the colors of the element and its
+    background.
+  </BlandDescription>
+  <div>
+    <p class="text">The "mixing" formula is defined as:</p>
+    <p class="formula">Cm = B(Cb, Cs)</p>
+    <ul class="list" role="list">
+      <li>Cm: the result color after blending</li>
+      <li>B: the formula that does the blending</li>
+      <li>
+        Cb: the backdrop color ( The color of the background behind the element
+        at that pixel (includes background image if any).)
+      </li>
+      <li>
+        Cs: the source color (The color of the element itself at a specific
+        pixel.)
+      </li>
+      <li>
+        Blend Factors (Sf, Bf): These are pre-defined values based on the chosen
+        mix-blend-mode that control how much of the source and background color
+        contribute to the final result.
+      </li>
+    </ul>
+  </div>
+  <BlandDescription>
+    Compositing Layers: When you have overlapping elements on a webpage, the
+    browser renders them in layers, one on top of the other. Each layer holds
+    the color information for the specific element.
+  </BlandDescription>
+  <hr />
+  <BlandDescription>
+    Blending Equation: mix-blend-mode defines a mathematical formula applied on
+    a pixel-by-pixel basis to determine the final color for each pixel where the
+    element and background overlap.
+  </BlandDescription>
+</div>
+
+<style>
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-inline-start: 0px;
+    & li {
+      border-bottom: 1px solid #1b1b1b;
+      padding-block-end: 10px;
+    }
+  }
+  .hero {
+    margin-block-end: 50px;
+  }
+  .text {
+    margin-block: 10px;
+    color: var(--black, #1b1b1b);
+    font-family: Patrick Hand;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+  }
+  .formula {
+    padding: 10px;
+    background-color: #1b1b1b;
+    color: var(--txt-1);
+    font-family: Patrick Hand;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+  }
+</style>
