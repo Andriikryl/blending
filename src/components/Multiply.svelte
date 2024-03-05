@@ -4,6 +4,7 @@
   import BlandTitle from "./BlandTitle.svelte";
   import BoxSeparetor from "./BoxSeparetor.svelte";
   import FinalBackdrop from "./FinalBackdrop.svelte";
+  import SpeechBubble from "./SpeechBubble.svelte";
   import { GUI, guiControls } from "./index";
   const gui = guiControls({
     R: 244,
@@ -33,6 +34,7 @@
 
 <div class="wrapper">
   <BlandTitle tag="h3">Multiply</BlandTitle>
+  <SpeechBubble>B(Cb, Cs) = Cb x Cs</SpeechBubble>
   <BlandDescription>Multiplies each channel together..</BlandDescription>
   <BoxSeparetor>
     <svelte:fragment slot="item-start">

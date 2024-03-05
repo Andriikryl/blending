@@ -4,6 +4,7 @@
   import BlandTitle from "./BlandTitle.svelte";
   import BoxSeparetor from "./BoxSeparetor.svelte";
   import FinalBackdrop from "./FinalBackdrop.svelte";
+  import SpeechBubble from "./SpeechBubble.svelte";
   import { GUI, guiControls } from "./index";
   const gui = guiControls({
     R: 244,
@@ -30,6 +31,7 @@
 
 <div class="wrapper">
   <BlandTitle tag="h3">darken</BlandTitle>
+  <SpeechBubble>B(Cb, Cs) = min(Cb, Cs)</SpeechBubble>
   <BlandDescription>
     Darken compares each colour's RGB value and selects the darkest value -
     creating a new colour.

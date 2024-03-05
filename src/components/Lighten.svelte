@@ -4,6 +4,7 @@
   import BlandTitle from "./BlandTitle.svelte";
   import BoxSeparetor from "./BoxSeparetor.svelte";
   import FinalBackdrop from "./FinalBackdrop.svelte";
+  import SpeechBubble from "./SpeechBubble.svelte";
   import { GUI, guiControls } from "./index";
   const gui = guiControls({
     R: 244,
@@ -29,6 +30,7 @@
 
 <div class="wrapper">
   <BlandTitle tag="h3">LIGHTEN</BlandTitle>
+  <SpeechBubble>B(Cb, Cs) = max(Cb, Cs)</SpeechBubble>
   <BlandDescription>Selects the lightest value.</BlandDescription>
   <BoxSeparetor>
     <svelte:fragment slot="item-start">

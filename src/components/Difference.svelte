@@ -4,6 +4,7 @@
   import BlandTitle from "./BlandTitle.svelte";
   import BoxSeparetor from "./BoxSeparetor.svelte";
   import FinalBackdrop from "./FinalBackdrop.svelte";
+  import SpeechBubble from "./SpeechBubble.svelte";
   import { GUI, guiControls } from "./index";
   const gui = guiControls({
     R: 244,
@@ -30,6 +31,7 @@
 
 <div class="wrapper">
   <BlandTitle tag="h3">Difference</BlandTitle>
+  <SpeechBubble>B(Cb, Cs) = | Cb - Cs |</SpeechBubble>
   <BlandDescription>
     Subtract the bottom colour from the top colour. Any negative numbers are
     made positive.

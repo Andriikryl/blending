@@ -4,6 +4,7 @@
   import BlandTitle from "./BlandTitle.svelte";
   import BoxSeparetor from "./BoxSeparetor.svelte";
   import FinalBackdrop from "./FinalBackdrop.svelte";
+  import SpeechBubble from "./SpeechBubble.svelte";
   import { GUI, guiControls } from "./index";
   const gui = guiControls({
     R: 244,
@@ -37,6 +38,10 @@
 
 <div class="wrapper">
   <BlandTitle tag="h3">Color Burn</BlandTitle>
+  <SpeechBubble
+    >if(Cb == 1) B(Cb, Cs) = 1 else if(Cs == 0) B(Cb, Cs) = 0 else B(Cb, Cs) = 1
+    - min(1, (1 - Cb) / Cs)</SpeechBubble
+  >
   <BlandDescription
     >Inverting the background, dividing it by the foreground and inverting the
     result.</BlandDescription
