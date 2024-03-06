@@ -9,6 +9,7 @@ import Screen from "../components/Screen.svelte";
 import ColorBurn from "../components/ColorBurn.svelte";
 import ColorDodge from "../components/ColorDodge.svelte";
 import Difference from "../components/Difference.svelte";
+import ColorControlsBlend from "../components/ColorControlsBlend.svelte";
 import Hero from "../components/Hero.astro";
 ---
 
@@ -21,6 +22,7 @@ import Hero from "../components/Hero.astro";
         </div>
         <div class="main__box">
           <Hero />
+          <ColorControlsBlend client:visible />
           <Darken client:visible />
           <Lighten client:visible />
           <Multiply client:visible />

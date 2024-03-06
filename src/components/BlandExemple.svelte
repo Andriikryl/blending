@@ -32,6 +32,5 @@
     left: -54px;
     bottom: -40px;
     z-index: 10;
-    /* mix-blend-mode: darken; */
   }
 </style>
