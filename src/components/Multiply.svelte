@@ -48,13 +48,22 @@
     <svelte:fragment slot="item-end">
       <BlandDescription>Backdrop values numbers</BlandDescription>
       <div class="flex__group">
-        <div class="iiner__box" style="background-color: rgb({minR}, 0, 0);">
+        <div
+          class="iiner__box"
+          style="background-color: rgb({+minR * 255}, 0, 0);"
+        >
           <p class="inner__title">{minR}</p>
         </div>
-        <div class="iiner__box" style="background-color: rgb(0, {minG}, 0);">
+        <div
+          class="iiner__box"
+          style="background-color: rgb(0, {+minG * 255}, 0);"
+        >
           <p class="inner__title">{minG}</p>
         </div>
-        <div class="iiner__box" style="background-color: rgb(0, 0, {minB});">
+        <div
+          class="iiner__box"
+          style="background-color: rgb(0, 0, {+minB * 255});"
+        >
           <p class="inner__title">{minB}</p>
         </div>
       </div>

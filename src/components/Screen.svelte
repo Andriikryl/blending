@@ -31,9 +31,9 @@
   $: invertG = 1 - +minG;
   $: invertB = 1 - +minB;
   $: {
-    bkR = invertR * 255;
-    bkG = invertG * 255;
-    bkB = invertB * 255;
+    bkR = +(invertR * 255).toFixed(2);
+    bkG = +(invertG * 255).toFixed(2);
+    bkB = +(invertB * 255).toFixed(2);
   }
 </script>
 
@@ -58,14 +58,23 @@
     <svelte:fragment slot="item-end">
       <BlandDescription>Backdrop values numbers</BlandDescription>
       <div class="flex__group">
-        <div class="iiner__box" style="background-color: rgb({minR}, 0, 0);">
-          <p class="inner__title">{invertR}</p>
+        <div
+          class="iiner__box"
+          style="background-color: rgb({+minR * 255}, 0, 0);"
+        >
+          <p class="inner__title">{invertR.toFixed(2)}</p>
         </div>
-        <div class="iiner__box" style="background-color: rgb(0, {minG}, 0);">
-          <p class="inner__title">{invertG}</p>
+        <div
+          class="iiner__box"
+          style="background-color: rgb(0, {+minG * 255}, 0);"
+        >
+          <p class="inner__title">{invertG.toFixed(2)}</p>
         </div>
-        <div class="iiner__box" style="background-color: rgb(0, 0, {minB});">
-          <p class="inner__title">{invertB}</p>
+        <div
+          class="iiner__box"
+          style="background-color: rgb(0, 0, {+minB * 255});"
+        >
+          <p class="inner__title">{invertB.toFixed(2)}</p>
         </div>
       </div>
     </svelte:fragment>
