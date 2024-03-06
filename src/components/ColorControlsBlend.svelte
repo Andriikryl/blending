@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Tooltip from "./Tooltip.svelte";
   import { GUI, guiControls } from "./index";
   const gui = guiControls({
     Background_color: "#0ea5e9",
@@ -78,16 +79,18 @@
   </div>
   <div class="blend__group">
     {#each blendMods as blend}
-      <div class="wrapper">
-        <div
-          class="box"
-          style="background-color: {$gui.Background_color};"
-        ></div>
-        <div
-          class="boxBg"
-          style="background-color: {$gui.Foreground_color}; {blend.blend}"
-        ></div>
-      </div>
+      <Tooltip title={blend.title}>
+        <div class="wrapper">
+          <div
+            class="box"
+            style="background-color: {$gui.Background_color};"
+          ></div>
+          <div
+            class="boxBg"
+            style="background-color: {$gui.Foreground_color}; {blend.blend}"
+          ></div>
+        </div>
+      </Tooltip>
     {/each}
   </div>
 </div>
