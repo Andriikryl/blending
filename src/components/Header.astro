@@ -1,11 +1,12 @@
 ---
 import Container from "./Container.astro";
+import Flag from "./Flag.svelte";
 ---
 
 <header class="header">
   <Container>
     <div class="header__box">
-      <p>header</p>
+      <Flag client:visible />
     </div>
   </Container>
 </header>
