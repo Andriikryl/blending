@@ -36,9 +36,6 @@
   let convetrFinalR: number;
   let convetrFinalG: number;
   let convetrFinalB: number;
-  function clamp(value: number, min = 0, max = 1) {
-    return Math.min(Math.max(value, min), max);
-  }
   $: {
     normolizeBgR = $guiBg.R / 255;
     normolizeBgG = $guiBg.G / 255;
