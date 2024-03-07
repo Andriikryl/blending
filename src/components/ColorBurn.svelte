@@ -1,11 +1,13 @@
 <script lang="ts">
+  import Decimal from "decimal.js";
   import BlandDescription from "./BlandDescription.svelte";
   import BlandExemple from "./BlandExemple.svelte";
   import BlandTitle from "./BlandTitle.svelte";
   import BoxSeparetor from "./BoxSeparetor.svelte";
-  import FinalBackdrop from "./FinalBackdrop.svelte";
   import SpeechBubble from "./SpeechBubble.svelte";
+
   import { GUI, guiControls } from "./index";
+  import FinalBackdrop from "./FinalBackdrop.svelte";
   const gui = guiControls({
     R: 244,
     G: 63,
@@ -16,24 +18,65 @@
     G: 165,
     B: 233,
   });
-  $: normoliActR = ($gui.R / 255).toFixed(2);
-  $: normoliActG = ($gui.G / 255).toFixed(2);
-  $: normoliActB = ($gui.B / 255).toFixed(2);
-  $: normolizeBgR = ($guiBg.R / 255).toFixed(2);
-  $: normolizeBgG = ($guiBg.G / 255).toFixed(2);
-  $: normolizeBgB = ($guiBg.B / 255).toFixed(2);
-  $: invertBgR = (1 - +normolizeBgR).toFixed(2);
-  $: invertBgG = (1 - +normolizeBgG).toFixed(2);
-  $: invertBgB = (1 - +normolizeBgB).toFixed(2);
-  $: devinedR = (+invertBgR / +normoliActR).toFixed(2);
-  $: devinedG = (+invertBgG / +normoliActG).toFixed(2);
-  $: devinedB = (+invertBgB / +normoliActB).toFixed(2);
-  $: finalInverR = (1 - +devinedR).toFixed(2);
-  $: finalInverG = (1 - +devinedG).toFixed(2);
-  $: finalInverB = (1 - +devinedB).toFixed(2);
-  $: finalColorBgR = Math.round(+finalInverR * 255);
-  $: finalColorBgG = Math.round(+-finalInverG * 255);
-  $: finalColorBgB = Math.round(+finalInverB * 255);
+
+  let normolizeBgR: number;
+  let normolizeBgG: number;
+  let normolizeBgB: number;
+  let invertBgrR: number;
+  let invertBgrG: number;
+  let invertBgrB: number;
+  let normilizeFoR: number;
+  let normilizeFoG: number;
+  let normilizeFoB: number;
+  let devideR: number;
+  let devideG: number;
+  let devideB: number;
+  let ivertResultR: number;
+  let ivertResultG: number;
+  let ivertResultB: number;
+  let finalColorBgR: number;
+  let finalColorBgG: number;
+  let finalColorBgB: number;
+  function clamp(value: number, min = 0, max = 1) {
+    return Math.min(Math.max(value, min), max);
+  }
+  $: {
+    normolizeBgR = $guiBg.R / 255;
+    normolizeBgG = $guiBg.G / 255;
+    normolizeBgB = $guiBg.B / 255;
+  }
+  $: {
+    normilizeFoR = $gui.R / 255;
+    normilizeFoG = $gui.G / 255;
+    normilizeFoB = $gui.B / 255;
+  }
+  $: {
+    invertBgrR = 1 - normolizeBgR;
+    invertBgrG = 1 - normolizeBgG;
+    invertBgrB = 1 - normolizeBgB;
+  }
+  $: {
+    devideR = clamp(invertBgrR / normilizeFoR);
+    devideG = clamp(invertBgrG / normilizeFoG);
+    devideB = clamp(invertBgrB / normilizeFoB);
+  }
+  $: {
+    ivertResultR = clamp(Math.abs(1 - devideR));
+    ivertResultG = clamp(Math.abs(1 - devideG));
+    ivertResultB = clamp(Math.abs(1 - devideB));
+  }
+  $: {
+    finalColorBgR = Math.floor(ivertResultR * 255);
+    finalColorBgG = Math.floor(ivertResultG * 255);
+    finalColorBgB = Math.floor(ivertResultB * 255);
+  }
+  $: algoritmsData = [
+    "normalise the values between 0 and 1 to work this out",
+    `invert the bg`,
+    `divide it by the foreground`,
+    `invert the result`,
+    `Result ---> background-color: rgb(${finalColorBgR}, ${finalColorBgG}, ${finalColorBgB})`,
+  ];
 </script>
 
 <div class="wrapper">
@@ -60,26 +103,41 @@
       <div class="flex__group">
         <div
           class="iiner__box"
-          style="background-color: rgb({+finalInverR * 255}, 0, 0);"
+          style="background-color: rgb({finalColorBgR}, 0, 0);"
         >
-          <p class="inner__title">{finalInverR}</p>
+          <p class="inner__title">{ivertResultR.toFixed(2)}</p>
         </div>
         <div
           class="iiner__box"
-          style="background-color: rgb(0, {+-finalInverG * 255}, 0);"
+          style="background-color: rgb(0, {finalColorBgG}, 0);"
         >
-          <p class="inner__title">{-finalInverG}</p>
+          <p class="inner__title">{ivertResultG.toFixed(2)}</p>
         </div>
         <div
           class="iiner__box"
-          style="background-color: rgb(0, 0, {+finalInverB * 255});"
+          style="background-color: rgb(0, 0, {finalColorBgB});"
         >
-          <p class="inner__title">{finalInverB}</p>
+          <p class="inner__title">{ivertResultB.toFixed(2)}</p>
         </div>
       </div>
     </svelte:fragment>
   </BoxSeparetor>
   <BlandExemple {gui} {guiBg} blendmode="mix-blend-mode: color-burn;" />
+  <div class="backdrop__wrapper">
+    <FinalBackdrop
+      bkB={finalColorBgB}
+      bkG={finalColorBgG}
+      bkR={finalColorBgR}
+    />
+    <div>
+      <BlandDescription>Algorithm</BlandDescription>
+      <ol class="algoritms__list">
+        {#each algoritmsData as algoritm}
+          <li>{algoritm}</li>
+        {/each}
+      </ol>
+    </div>
+  </div>
 </div>
 
 <style>

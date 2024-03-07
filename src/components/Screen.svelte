@@ -35,6 +35,13 @@
     bkG = +(invertG * 255).toFixed(2);
     bkB = +(invertB * 255).toFixed(2);
   }
+  $: algoritmsData = [
+    "normalise the values between 0 and 1 to work this out",
+    `invert each color`,
+    `multiply each color`,
+    `ivert the result`,
+    `Result ---> background-color: rgb(${Math.floor(bkR)}, ${Math.floor(bkG)}, ${Math.floor(bkB)})`,
+  ];
 </script>
 
 <div class="wrapper">
@@ -80,7 +87,17 @@
     </svelte:fragment>
   </BoxSeparetor>
   <BlandExemple {gui} {guiBg} blendmode="mix-blend-mode: screen;" />
-  <FinalBackdrop {bkB} {bkG} {bkR} />
+  <div class="backdrop__wrapper">
+    <FinalBackdrop {bkB} {bkG} {bkR} />
+    <div>
+      <BlandDescription>Algorithm</BlandDescription>
+      <ol class="algoritms__list">
+        {#each algoritmsData as algoritm}
+          <li>{algoritm}</li>
+        {/each}
+      </ol>
+    </div>
+  </div>
 </div>
 
 <style>

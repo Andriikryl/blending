@@ -31,6 +31,13 @@
   $: finalInverR = +devinedR * 255;
   $: finalInverG = +devinedG * 255;
   $: finalInverB = +devinedB * 255;
+
+  $: algoritmsData = [
+    "normalise the values between 0 and 1 to work this out",
+    `invert the foreground`,
+    `divide the background by 1`,
+    `Result ---> background-color: rgb(${Math.floor(finalInverR)}, ${Math.floor(finalInverG)}, ${Math.floor(finalInverB)})`,
+  ];
 </script>
 
 <div class="wrapper">
@@ -76,7 +83,17 @@
     </svelte:fragment>
   </BoxSeparetor>
   <BlandExemple {gui} {guiBg} blendmode="mix-blend-mode: color-dodge;" />
-  <FinalBackdrop bkB={finalInverB} bkG={finalInverG} bkR={finalInverR} />
+  <div class="backdrop__wrapper">
+    <FinalBackdrop bkB={finalInverB} bkG={finalInverG} bkR={finalInverR} />
+    <div>
+      <BlandDescription>Algorithm</BlandDescription>
+      <ol class="algoritms__list">
+        {#each algoritmsData as algoritm}
+          <li>{algoritm}</li>
+        {/each}
+      </ol>
+    </div>
+  </div>
 </div>
 
 <style>

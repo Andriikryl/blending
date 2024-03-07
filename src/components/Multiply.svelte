@@ -30,6 +30,12 @@
     bkG = parseFloat(minG) * 255;
     bkB = parseFloat(minB) * 255;
   }
+  $: algoritmsData = [
+    "multiplies each channel together.",
+    `Blend ---> background-color: rgb(${$gui.R}, ${$gui.G}, ${$gui.B})`,
+    `Background ---> background-color: rgb(${$guiBg.R}, ${$guiBg.G}, ${$guiBg.B})`,
+    `Result ---> background-color: rgb(${minR}, ${minG}, ${minB})`,
+  ];
 </script>
 
 <div class="wrapper">
@@ -70,7 +76,17 @@
     </svelte:fragment>
   </BoxSeparetor>
   <BlandExemple {gui} {guiBg} blendmode="mix-blend-mode: multiply;" />
-  <FinalBackdrop {bkB} {bkG} {bkR} />
+  <div class="backdrop__wrapper">
+    <FinalBackdrop {bkB} {bkG} {bkR} />
+    <div>
+      <BlandDescription>Algorithm</BlandDescription>
+      <ol class="algoritms__list">
+        {#each algoritmsData as algoritm}
+          <li>{algoritm}</li>
+        {/each}
+      </ol>
+    </div>
+  </div>
 </div>
 
 <style>
