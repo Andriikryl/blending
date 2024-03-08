@@ -18,8 +18,8 @@
   });
 
   $: algoritmsData = [
-    "take the Blend hue",
-    "take the background saturation and luminosity",
+    "take the Blend saturation",
+    "take the background hue and luminosity",
     `Blend ---> background-color: rgb(${$gui.H}, ${$gui.S}, ${$gui.L})`,
     `Background ---> background-color: rgb(${$guiBg.H}, ${$guiBg.S}, ${$guiBg.L})`,
     `Result ---> background-color: rgb(${$gui.H}, ${$guiBg.S}, ${$guiBg.L})`,
@@ -27,11 +27,12 @@
 </script>
 
 <div class="wrapper">
-  <BlandTitle tag="h3">Hue</BlandTitle>
-  <SpeechBubble>B(Cb, Cs) = SetLum(SetSat(Cs, Sat(Cb)), Lum(Cb))</SpeechBubble>
+  <BlandTitle tag="h3">Saturation</BlandTitle>
+  <SpeechBubble>B(Cb, Cs) = SetLum(SetSat(Cb, Sat(Cs)), Lum(Cb))</SpeechBubble>
   <BlandDescription>
-    Creates a color with the hue of the source color and the saturation and
-    luminosity of the backdrop color.
+    Creates a color with the saturation of the source color and the hue and
+    luminosity of the backdrop color. Painting with this mode in an area of the
+    backdrop that is a pure gray (no saturation) produces no change.
   </BlandDescription>
   <BoxSeparetor>
     <svelte:fragment slot="item-start">
@@ -47,15 +48,15 @@
       <div class="flex__group">
         <div
           class="iiner__box"
-          style="background-color: hsl({$gui.H}, 0%, 0%);"
+          style="background-color: hsl({$guiBg.H}, 0%, 0%);"
         >
-          <p class="inner__title">{$gui.H}</p>
+          <p class="inner__title">{$guiBg.H}</p>
         </div>
         <div
           class="iiner__box"
-          style="background-color: hsl(0, {$guiBg.S}%, 0%);"
+          style="background-color: hsl(0, {$gui.S}%, 0%);"
         >
-          <p class="inner__title">{$guiBg.S}</p>
+          <p class="inner__title">{$gui.S}</p>
         </div>
         <div
           class="iiner__box"
@@ -66,12 +67,12 @@
       </div></svelte:fragment
     >
   </BoxSeparetor>
-  <BlandExempleHue {gui} {guiBg} blendmode=" mix-blend-mode: hue" />
+  <BlandExempleHue {gui} {guiBg} blendmode=" mix-blend-mode: saturation" />
   <div class="backdrop__wrapper">
     <FinalBackdrop
       bkB={$guiBg.L}
-      bkG={$guiBg.S}
-      bkR={$gui.H}
+      bkG={$gui.S}
+      bkR={$guiBg.H}
       ColorSpace="hsl"
     />
     <div>
