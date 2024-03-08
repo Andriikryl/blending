@@ -15,6 +15,7 @@ import Hue from "../components/Hue.svelte";
 import Hero from "../components/Hero.astro";
 import Info from "../components/Info.astro";
 import Saturation from "../components/Saturation.svelte";
+import Question from "../components/Question.svelte";
 ---
 
 <Layout title="Blending">
@@ -26,6 +27,7 @@ import Saturation from "../components/Saturation.svelte";
         </div>
         <div class="main__box">
           <Hero />
+          <Question client:visible />
           <ColorControlsBlend client:visible />
           <Lighten client:visible />
           <Darken client:visible />
