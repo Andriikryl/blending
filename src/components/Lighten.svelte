@@ -31,7 +31,9 @@
 <div class="wrapper">
   <BlandTitle tag="h3">LIGHTEN</BlandTitle>
   <SpeechBubble>B(Cb, Cs) = max(Cb, Cs)</SpeechBubble>
-  <BlandDescription>Selects the lightest value.</BlandDescription>
+  <BlandDescription
+    >Selects the lighter of the backdrop and source colors.</BlandDescription
+  >
   <BoxSeparetor>
     <svelte:fragment slot="item-start">
       <div class="control__bg">

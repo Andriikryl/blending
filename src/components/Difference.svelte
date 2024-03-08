@@ -33,8 +33,9 @@
   <BlandTitle tag="h3">Difference</BlandTitle>
   <SpeechBubble>B(Cb, Cs) = | Cb - Cs |</SpeechBubble>
   <BlandDescription>
-    Subtract the bottom colour from the top colour. Any negative numbers are
-    made positive.
+    Subtracts the darker of the two constituent colors from the lighter color.
+    Painting with white inverts the backdrop color; painting with black produces
+    no change.
   </BlandDescription>
   <BoxSeparetor>
     <svelte:fragment slot="item-start">

@@ -41,7 +41,12 @@
 <div class="wrapper">
   <BlandTitle tag="h3">Multiply</BlandTitle>
   <SpeechBubble>B(Cb, Cs) = Cb x Cs</SpeechBubble>
-  <BlandDescription>Multiplies each channel together..</BlandDescription>
+  <BlandDescription
+    >The source color is multiplied by the destination color and replaces the
+    destination. The resultant color is always at least as dark as either the
+    source or destination color. Multiplying any color with black results in
+    black. Multiplying any color with white preserves the original color.</BlandDescription
+  >
   <BoxSeparetor>
     <svelte:fragment slot="item-start">
       <div class="control__bg">

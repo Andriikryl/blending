@@ -33,8 +33,7 @@
   <BlandTitle tag="h3">darken</BlandTitle>
   <SpeechBubble>B(Cb, Cs) = min(Cb, Cs)</SpeechBubble>
   <BlandDescription>
-    Darken compares each colour's RGB value and selects the darkest value -
-    creating a new colour.
+    Selects the darker of the backdrop and source colors.
   </BlandDescription>
   <BoxSeparetor>
     <svelte:fragment slot="item-start">

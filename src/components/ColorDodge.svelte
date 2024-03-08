@@ -47,7 +47,8 @@
     min(1, Cb / (1 - Cs))</SpeechBubble
   >
   <BlandDescription
-    >Invert the foreground divide the background by it.</BlandDescription
+    >Brightens the backdrop color to reflect the source color. Painting with
+    black produces no changes.</BlandDescription
   >
   <BoxSeparetor>
     <svelte:fragment slot="item-start">
